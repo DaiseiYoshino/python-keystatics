@@ -1,3 +1,4 @@
+import keyFrame from './component/keyFrame.ts';
 import todayString from './util/todayString.ts';
 
 let filePath: string = `../LOG/report-${todayString()}.html`;
@@ -45,30 +46,9 @@ let html: string = `
   </head>
   <body>
     <p>Hello!</p>
-    <div class="key-frame">
-      <div class="key-box">
-        <span class="key-char">a</span>
-      </div>
-    </div>
-    <div class="key-frame">
-      <div class="key-box">
-        <span class="key-char">b</span>
-      </div>
-      <div class="key-box">
-        <span class="key-char">B</span>
-      </div>
-    </div>
-    <div class="key-frame">
-      <div class="key-box">
-        <span class="key-char">c</span>
-      </div>
-      <div class="key-box">
-        <span class="key-char">C</span>
-      </div>
-      <div class="key-box">
-        <span class="key-char">Ç</span>
-      </div>
-    </div>
+    ${keyFrame(['a'])}
+    ${keyFrame(['b', 'B'])}
+    ${keyFrame(['c', 'C', 'Ç'])}
   </body>
 </html>
 `;
