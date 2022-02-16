@@ -15,8 +15,19 @@ let html: string = `
 
         border: thick outset #aaaaaa;
 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      div.key-box {
+        flex-grow: 1;
+        width: 50%;
+        border: medium solid #cccccc;
+        box-sizing: border-box;
         position: relative;
       }
+
       span.key-char {
         font-weight: bold;
 
@@ -24,18 +35,39 @@ let html: string = `
         height: 100%;
 
         position: absolute;
-        top: 30%;
+        top: 20%;
         text-align: center;
       }
     </style>
-    <script type="text/javascript">s
+    <script type="text/javascript">
       window.onload=${testFunc.toString()};
     </script>
   </head>
   <body>
     <p>Hello!</p>
     <div class="key-frame">
-      <span class="key-char">a</span>
+      <div class="key-box">
+        <span class="key-char">a</span>
+      </div>
+    </div>
+    <div class="key-frame">
+      <div class="key-box">
+        <span class="key-char">b</span>
+      </div>
+      <div class="key-box">
+        <span class="key-char">B</span>
+      </div>
+    </div>
+    <div class="key-frame">
+      <div class="key-box">
+        <span class="key-char">c</span>
+      </div>
+      <div class="key-box">
+        <span class="key-char">C</span>
+      </div>
+      <div class="key-box">
+        <span class="key-char">Ç</span>
+      </div>
     </div>
   </body>
 </html>
