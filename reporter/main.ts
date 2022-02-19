@@ -43,6 +43,9 @@ let html: string = `
     <script type="text/javascript">
       window.onload=${testFunc.toString()};
     </script>
+    <script type="text/javascript">
+      const mouseOverFunc = elem => {elem.style.backgroundColor = '#aaaaff';};
+    </script>
   </head>
   <body>
     <p>Hello!</p>
