@@ -1,4 +1,6 @@
-const keyBox = (key: string): string => {
+import {keyInfo, singleChar} from '../types/types.ts'
+
+const keyBox = (char: singleChar): string => {
   return `
     <div
       class="key-box"
@@ -6,19 +8,19 @@ const keyBox = (key: string): string => {
       onmouseout="mouseOutFunc(this)"
     >
       <span class="key-char">
-        ${key}
+        ${char.name}
       </span>
       <div class="balloon">
-        <span>${key}: test</span>
+        <span>${char.name}: ${char.count}</span>
       </div>
     </div>
   `;
 };
 
-export default (keyInfo: {width?:number, keys:string[]}): string => {
+export default (key: keyInfo): string => {
   return `
-    <div class="key-frame" style="width:${(keyInfo.width ?? 1)*60}px;">
-      ${keyInfo.keys.map(keyBox).join('')}
+    <div class="key-frame" style="width:${(key.width ?? 1)*60}px;">
+      ${key.chars.map(keyBox).join('')}
     </div>
   `;
 };

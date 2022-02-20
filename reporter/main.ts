@@ -80,8 +80,8 @@ let html: string = `
     </script>
   </head>
   <body>
-    ${keyRow({keys: [{width:1.5, keys:['a']}, {keys: ['b', 'B']}, {keys: ['c', 'C', 'Ç']}]})}
-    ${keyRow({padding: 0.5, keys:[{keys: ['d', 'D']}]})}
+    ${keyRow({keys: [{width:1.5, chars:[{name:'a', count:1}]}, {chars: [{name:'b', count:2}, {name:'B', count:20}]}, {chars: [{name:'c', count:3}, {name:'C',count:33}, {name:'Ç', count:333}]}]})}
+    ${keyRow({padding: 0.5, keys:[{chars: [{name:'d',count:123}, {name:'D', count:12}]}]})}
   </body>
 </html>
 `;
