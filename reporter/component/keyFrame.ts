@@ -8,6 +8,9 @@ const keyBox = (key: string): string => {
       <span class="key-char">
         ${key}
       </span>
+      <div class="balloon">
+        <span>test</span>
+      </div>
     </div>
   `;
 };

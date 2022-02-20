@@ -52,6 +52,17 @@ let html: string = `
         top: 20%;
         text-align: center;
       }
+
+      div.balloon {
+        display: hidden;
+
+        top: 30px;
+        left: 20px;
+        width: 100px;
+        height: 100px;
+
+        position: absolute;
+      }
     </style>
     <script type="text/javascript">
       const mouseOverFunc = ${onMouseOverFunc.toString()};
