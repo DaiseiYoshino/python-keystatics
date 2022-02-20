@@ -46,9 +46,9 @@ let html: string = `
   </head>
   <body>
     <p>Hello!</p>
-    ${keyFrame({width:1, keys:['a']})}
+    ${keyFrame({keys:['a']})}
     ${keyFrame({width:1.5, keys:['b', 'B']})}
-    ${keyFrame({width:1, keys:['c', 'C', 'Ç']})}
+    ${keyFrame({keys:['c', 'C', 'Ç']})}
   </body>
 </html>
 `;

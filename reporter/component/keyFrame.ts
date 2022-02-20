@@ -12,9 +12,9 @@ const keyBox = (key: string): string => {
   `;
 };
 
-export default (keyInfo: {width:number, keys:string[]}): string => {
+export default (keyInfo: {width?:number, keys:string[]}): string => {
   return `
-    <div class="key-frame" style="width:${keyInfo.width*60}px;">
+    <div class="key-frame" style="width:${(keyInfo.width ?? 1)*60}px;">
       ${keyInfo.keys.map(keyBox).join('')}
     </div>
   `;
