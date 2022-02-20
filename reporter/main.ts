@@ -54,7 +54,7 @@ let html: string = `
       }
 
       div.balloon {
-        display: hidden;
+        display: none;
 
         top: 30px;
         left: 20px;
