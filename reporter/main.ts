@@ -9,11 +9,19 @@ let html: string = `
 <html>
   <head>
     <style>
+      div.key-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
       div.key-frame {
         width: 60px;
         height: 60px;
 
         border: thick outset #aaaaaa;
+
+        box-sizing: border-box;
 
         display: flex;
         flex-wrap: wrap;
@@ -46,9 +54,14 @@ let html: string = `
   </head>
   <body>
     <p>Hello!</p>
-    ${keyFrame({keys:['a']})}
-    ${keyFrame({width:1.5, keys:['b', 'B']})}
-    ${keyFrame({keys:['c', 'C', 'Ç']})}
+    <div class="key-row">
+      ${keyFrame({keys:['a']})}
+      ${keyFrame({width:1.5, keys:['b', 'B']})}
+      ${keyFrame({keys:['c', 'C', 'Ç']})}
+    </div>
+    <div class="key-row">
+      ${keyFrame({keys:['d', 'D']})}
+    </div>
   </body>
 </html>
 `;
