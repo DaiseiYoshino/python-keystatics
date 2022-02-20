@@ -45,6 +45,7 @@ let html: string = `
     </script>
     <script type="text/javascript">
       const mouseOverFunc = elem => {elem.style.backgroundColor = '#aaaaff';};
+      const mouseOutFunc = elem => {elem.style.backgroundColor = '#ffffff';};
     </script>
   </head>
   <body>
