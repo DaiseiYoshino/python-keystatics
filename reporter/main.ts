@@ -1,9 +1,8 @@
 import keyFrame from './component/keyFrame.ts';
+import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import todayString from './util/todayString.ts';
 
 let filePath: string = `../LOG/report-${todayString()}.html`;
-
-const testFunc = (): void => alert('Hello, this is a test!');
 
 let html: string = `
 <!doctype html>
@@ -41,11 +40,8 @@ let html: string = `
       }
     </style>
     <script type="text/javascript">
-      window.onload=${testFunc.toString()};
-    </script>
-    <script type="text/javascript">
-      const mouseOverFunc = elem => {elem.style.backgroundColor = '#aaaaff';};
-      const mouseOutFunc = elem => {elem.style.backgroundColor = '#ffffff';};
+      const mouseOverFunc = ${onMouseOverFunc.toString()};
+      const mouseOutFunc = ${onMouseOutFunc.toString()};
     </script>
   </head>
   <body>
