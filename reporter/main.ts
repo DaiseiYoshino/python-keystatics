@@ -59,7 +59,7 @@ let html: string = `
         top: 30px;
         left: 20px;
         width: 100px;
-        height: 100px;
+        height: 50px;
         border: thin solid #aaaaff;
         background-color: #eeeeee;
         z-index: 1;
