@@ -15,6 +15,12 @@ let html: string = `
         justify-content: flex-start;
       }
 
+      div.key-pad {
+        height: 60px;
+
+        box-sizing: border-box;
+      }
+
       div.key-frame {
         width: 60px;
         height: 60px;
@@ -60,6 +66,7 @@ let html: string = `
       ${keyFrame({keys:['c', 'C', 'Ç']})}
     </div>
     <div class="key-row">
+      <div class="key-pad" style="width: 30px;"></div>
       ${keyFrame({keys:['d', 'D']})}
     </div>
   </body>
