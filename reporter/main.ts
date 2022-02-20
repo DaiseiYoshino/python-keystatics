@@ -1,4 +1,4 @@
-import keyFrame from './component/keyFrame.ts';
+import keyRow from './component/keyRow.ts';
 import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import todayString from './util/todayString.ts';
 
@@ -80,16 +80,8 @@ let html: string = `
     </script>
   </head>
   <body>
-    <p>Hello!</p>
-    <div class="key-row">
-      ${keyFrame({keys:['a']})}
-      ${keyFrame({width:1.5, keys:['b', 'B']})}
-      ${keyFrame({keys:['c', 'C', 'Ç']})}
-    </div>
-    <div class="key-row">
-      <div class="key-pad" style="width: 30px;"></div>
-      ${keyFrame({keys:['d', 'D']})}
-    </div>
+    ${keyRow({keys: [{width:1.5, keys:['a']}, {keys: ['b', 'B']}, {keys: ['c', 'C', 'Ç']}]})}
+    ${keyRow({padding: 0.5, keys:[{keys: ['d', 'D']}]})}
   </body>
 </html>
 `;
