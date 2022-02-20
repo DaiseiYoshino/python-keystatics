@@ -60,6 +60,16 @@ let html: string = `
         left: 20px;
         width: 100px;
         height: 100px;
+        border: thin solid #aaaaff;
+        background-color: #eeeeee;
+        z-index: 1;
+
+        position: absolute;
+      }
+
+      div.balloon span {
+        top: 10px;
+        left: 10px;
 
         position: absolute;
       }
