@@ -1,6 +1,6 @@
-import {keyRowInfo} from '../types/types.ts';
-import keyFrame from './keyFrame.ts';
-import keyPad from './keyPad.ts';
+import {keyRowInfo} from '../types/types';
+import keyFrame from './keyFrame';
+import keyPad from './keyPad';
 
 export default (data: keyRowInfo): string => {
   return `

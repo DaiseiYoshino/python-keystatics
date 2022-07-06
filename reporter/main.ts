@@ -1,6 +1,6 @@
-import keyRow from './component/keyRow.ts';
-import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
-import todayString from './util/todayString.ts';
+import keyRow from './component/keyRow';
+import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions';
+import todayString from './util/todayString';
 
 let filePath: string = `../LOG/report-${todayString()}.html`;
 
