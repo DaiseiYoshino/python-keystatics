@@ -1,4 +1,4 @@
-import {keyInfo, singleChar} from '../types/types'
+import {keyInfo, singleChar} from '../types/types.ts'
 
 const keyBox = (char: singleChar): string => {
   return `
