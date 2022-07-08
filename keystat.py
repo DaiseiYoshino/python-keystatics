@@ -48,6 +48,7 @@ class Keys_stack:
         self.today = self.time.strftime('%Y_%m_%d')
 
 if __name__ == '__main__':
+    print('Get key ready.')
     KS = Keys_stack()
     atexit.register(KS.save_log)
     with Listener(on_press=KS.key_append) as listener:
