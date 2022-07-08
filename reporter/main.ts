@@ -78,7 +78,7 @@ const stylePart = `
 `;
 
 const keyRows = keyTypeToKeyInfo(keyboardInfo, keyTypes);
-const keyPart = keyRows.map(keyRowInfo => keyRow(keyRowInfo));
+const keyPart = keyRows.map(keyRowInfo => keyRow(keyRowInfo)).join('');
 
 const html = `
 <!doctype html>
