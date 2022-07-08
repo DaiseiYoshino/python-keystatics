@@ -9,8 +9,8 @@ const keyBlocks: keyBoardSettings = [
 const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRowInfo[] => {
   let ret: keyRowInfo[] = [];
   for (const keyboardRow of keyboard) {// キーボードの列に対応するループ
-    let padding: number = keyboardRow.padding ?? 0;
-    let keys: keyInfo[] = [];
+    const padding: number = keyboardRow.padding ?? 0;
+    const keys: keyInfo[] = [];
     for (const keycap of keyboardRow.keys) {// 各キー(一つのキーには大文字小文字等複数の文字が含まれる)毎のループ
       let width: number = keycap.width ?? 1;
       let chars: singleChar[] = [];

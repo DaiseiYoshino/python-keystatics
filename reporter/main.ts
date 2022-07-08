@@ -2,9 +2,9 @@ import keyRow from './component/keyRow.ts';
 import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import todayString from './util/todayString.ts';
 
-let filePath: string = `../LOG/report-${todayString()}.html`;
+const filePath = `../LOG/report-${todayString()}.html`;
 
-let html: string = `
+const html = `
 <!doctype html>
 <html>
   <head>
