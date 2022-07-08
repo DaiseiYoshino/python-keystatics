@@ -1,8 +1,12 @@
 import keyRow from './component/keyRow.ts';
 import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
+import keyboardInfo from './keyboardInfo/win_jp.ts';
+import keyTypeToKeyInfo from './util/keyTypeToKeyInfo.ts';
 import todayString from './util/todayString.ts';
 
 const filePath = `../LOG/report-${todayString()}.html`;
+
+const keyTypes = JSON.parse(await Deno.readTextFile('../LOG/2022_07_07.txt'));
 
 const stylePart = `
 <style>
@@ -73,6 +77,9 @@ const stylePart = `
 </style>
 `;
 
+const keyRows = keyTypeToKeyInfo(keyboardInfo, keyTypes);
+const keyPart = keyRows.map(keyRowInfo => keyRow(keyRowInfo));
+
 const html = `
 <!doctype html>
 <html>
@@ -84,8 +91,7 @@ const html = `
     </script>
   </head>
   <body>
-    ${keyRow({keys: [{width:1.5, chars:[{name:'a', count:1}]}, {chars: [{name:'b', count:2}, {name:'B', count:20}]}, {chars: [{name:'c', count:3}, {name:'C',count:33}, {name:'Ç', count:333}]}]})}
-    ${keyRow({padding: 0.5, keys:[{chars: [{name:'d',count:123}, {name:'D', count:12}]}]})}
+    ${keyPart}
   </body>
 </html>
 `;
