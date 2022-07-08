@@ -18,7 +18,7 @@ export default [
     // scroll lock
     // pause break
     // insert
-    {keys: 'Key.delete'}
+    {keys: ['Key.delete']}
     // page up/ home
     // page down/ end
   ]},
@@ -42,8 +42,22 @@ export default [
   ]},
   // 上から三段目(QWERTYの行)
    {keys: [
-    {keys: ['Key.tab']},
+    {width: 1.5, keys: ['Key.tab']},
     {keys: ["'q'", "'Q'"]},
-    {keys: ["'w'", "'W'"]}
+    {keys: ["'w'", "'W'"]},
+    {keys: ["'e'", "'E'"]},
+    {keys: ["'r'", "'R'"]},
+    {keys: ["'t'", "'T'"]},
+    {keys: ["'y'", "'Y'"]},
+    {keys: ["'u'", "'U'"]},
+    {keys: ["'i'", "'I'"]},
+    {keys: ["'o'", "'O'"]},
+    {keys: ["'p'", "'P'"]},
+    {keys: ["'@'", "'`'"]},
+    {keys: ["'['", "'{'"]}
+   ]},
+   {keys: [
+    {width: 2, keys: ['Key.caps_lock']},
+    {keys: ["'a'", "'A'"]},
    ]}
 ];
