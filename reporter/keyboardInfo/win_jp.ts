@@ -91,7 +91,7 @@ export default [
     {keys: ['Key.ctrl']},
     {keys: ['Key.cmd']},
     {keys: ['Key.alt']},
-    {witdh: 3, keys: ['Key.space']},
+    {width: 3, keys: ['Key.space']},
     {keys: ['Key.alt_r']},
     {keys: ['Key.ctrl_r']},
     {keys: ['Key.left', 'Key.home']},
