@@ -59,5 +59,43 @@ export default [
    {keys: [
     {width: 2, keys: ['Key.caps_lock']},
     {keys: ["'a'", "'A'"]},
+    {keys: ["'s'", "'S'"]},
+    {keys: ["'d'", "'D'"]},
+    {keys: ["'f'", "'F'"]},
+    {keys: ["'g'", "'G'"]},
+    {keys: ["'h'", "'H'"]},
+    {keys: ["'j'", "'J'"]},
+    {keys: ["'k'", "'K'"]},
+    {keys: ["'l'", "'L'"]},
+    {keys: ["';'", "'+'"]},
+    {keys: ["':'", "'*'"]},
+    {keys: ["']'", "'}'"]},
+    {width: 1.5, keys: ['Key.enter']}
+   ]},
+   {keys: [
+    {width: 2.5, keys:['Key.shift']},
+    {keys: ["'z'", "'Z'"]},
+    {keys: ["'x'", "'X'"]},
+    {keys: ["'c'", "'C'"]},
+    {keys: ["'v'", "'V'"]},
+    {keys: ["'b'", "'B'"]},
+    {keys: ["'n'", "'N'"]},
+    {keys: ["'m'", "'M'"]},
+    {keys: ["','", "'<'"]},
+    {keys: ["'.'", "'>'"]},
+    {keys: ["'//'", "'?'"]},
+    {keys: ["'\\'", "'_'"]},
+    {keys: ['Key.shift_r']}
+   ]},
+   {keys: [
+    {keys: ['Key.ctrl']},
+    {keys: ['Key.alt']},
+    {witdh: 3, keys: ['Key.space']},
+    {keys: ['Key.alt_r']},
+    {keys: ['Key.ctrl_r']},
+    {keys: ['Key.left', 'Key.home']},
+    {keys: ['Key.down', 'Key.pgdn']},// page downってこれで良かった？
+    {keys: ['Key.up', 'Key.pgup']},
+    {keys: ['Key.right', 'Key.end']}
    ]}
 ];
