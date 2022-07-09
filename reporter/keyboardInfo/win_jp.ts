@@ -89,13 +89,14 @@ export default [
    ]},
    {keys: [
     {keys: ['Key.ctrl']},
+    {keys: ['Key.cmd']},
     {keys: ['Key.alt']},
     {witdh: 3, keys: ['Key.space']},
     {keys: ['Key.alt_r']},
     {keys: ['Key.ctrl_r']},
     {keys: ['Key.left', 'Key.home']},
-    {keys: ['Key.down', 'Key.pgdn']},// page downってこれで良かった？
-    {keys: ['Key.up', 'Key.pgup']},
+    {keys: ['Key.down', 'Key.page_down']},// page downってこれで良かった？
+    {keys: ['Key.up', 'Key.page_up']},
     {keys: ['Key.right', 'Key.end']}
    ]}
 ];
