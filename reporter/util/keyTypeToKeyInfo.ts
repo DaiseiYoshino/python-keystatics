@@ -3,10 +3,8 @@ import {keyTypes, keyBoardSettings, keyRowInfo, keyInfo, singleChar} from '../ty
 const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRowInfo[] => {
   const ret: keyRowInfo[] = [];
   for (const keyboardRow of keyboard) {// キーボードの列に対応するループ
-    const padding: number = keyboardRow.padding ?? 0;
     const keys: keyInfo[] = [];
     for (const keycap of keyboardRow.keys) {// 各キー(一つのキーには大文字小文字等複数の文字が含まれる)毎のループ
-      const width: number = keycap.width ?? 1;
       const chars: singleChar[] = [];
       for (const char of keycap.keys) {// 各文字に対するループ
         chars.push({
@@ -15,12 +13,12 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
         });
       }
       keys.push({
-        width: width,
+        width: keycap.width ?? 1,
         chars: chars
       });
     }
     ret.push({
-      padding: padding,
+      padding: keyboardRow.padding ?? 0,
       keys: keys
     });
   }
