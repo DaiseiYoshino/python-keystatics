@@ -11,9 +11,9 @@ export default [
     {keys: ['Key.f7']},
     {keys: ['Key.f8']},
     {keys: ['Key.f9']},
-    {keys: ['Key.f10']},
-    {keys: ['Key.f11']},
-    {keys: ['Key.f12']}
+    {keys: ['Key.f10', 'Key.media_volume_mute']},
+    {keys: ['Key.f11', 'Key.media_volume_down']},
+    {keys: ['Key.f12', 'Key.media_volume_up']}
   ]},
   // 数字等の段
   {keys: [
@@ -25,7 +25,7 @@ export default [
     ]},
     {keys: [
       "'2'",
-      // 「"」
+      "'\"'",     // 「"」
       "'\u2122'", // ™
       "'\u20ac'"  // €
     ]},
