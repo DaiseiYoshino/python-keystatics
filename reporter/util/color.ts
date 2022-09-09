@@ -1,3 +1,5 @@
+const CHAR_MAX: number = 255;
+
 /**
  * キーに着色する用のパラメータを生成する
  *
@@ -6,11 +8,11 @@
  * @returns {string} 設定する色
  */
 const getColorForKey = (count: number, maxCount: number): string => {
-  const barometer: number = count / maxCount;
+  const barometer: number = Math.floor(CHAR_MAX * count / maxCount);
 
-  const red: number = Math.floor(255 * barometer * barometer);
-  const green: number = 128;
-  const blue: number = Math.floor(255 * barometer);
+  const red: number = barometer;
+  const green: number = 0;
+  const blue: number = 255 - barometer;
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
