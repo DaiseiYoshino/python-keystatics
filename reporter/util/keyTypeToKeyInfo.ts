@@ -1,4 +1,16 @@
 import {keyTypes, keyBoardSettings, keyRowInfo, keyInfo, singleChar} from '../types/types.ts';
+import getColorForKey from './color.ts';
+
+/**
+ * 最大キータイプ数を取得する
+ *
+ * @param keyType キータイプ情報
+ * @returns {number}
+ */
+const getMaxKeyTypes = (keyType: keyTypes): number => {
+  const counts: number[] = Object.values(keyType); 
+  return Math.max(...counts);
+}
 
 /**
  * キーボード設定にあるキーを抽出する
@@ -49,6 +61,7 @@ const extractCharsNotInSetting = (keyboard: keyBoardSettings, keyType: keyTypes)
  * @returns {keyRowInfo[]}
  */
 const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRowInfo[] => {
+  const maxTypes = getMaxKeyTypes(keyType);
   const ret: keyRowInfo[] = [];
 
   // キーボード設定に含まれている文字についてデータを生成する
@@ -59,7 +72,8 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
       for (const char of keycap.keys) {// 各文字に対するループ
         chars.push({
           name: char,
-          count: keyType[char] ?? 0
+          count: keyType[char] ?? 0,
+          color: getColorForKey(keyType[char], maxTypes)
         });
       }
       keys.push({
