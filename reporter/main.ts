@@ -73,6 +73,10 @@ const stylePart = `
     z-index: 1;
 
     position: absolute;
+
+    transition-property: opacity;
+    transition-duration: .4s;
+    opacity: 0;
   }
 
   div.balloon span {
