@@ -70,10 +70,11 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
     for (const keycap of keyboardRow.keys) {// 各キー(一つのキーには大文字小文字等複数の文字が含まれる)毎のループ
       const chars: singleChar[] = [];
       for (const char of keycap.keys) {// 各文字に対するループ
+        const typeCount = keyType[char] ?? 0;
         chars.push({
           name: char,
-          count: keyType[char] ?? 0,
-          color: getColorForKey(keyType[char], maxTypes)
+          count: typeCount,
+          color: getColorForKey(typeCount, maxTypes)
         });
       }
       keys.push({
