@@ -1,4 +1,7 @@
 export default (): string => {
   const today: Date = new Date();
-  return `${today.getFullYear()}_${('0'+today.getMonth()+1).substr(-2, 2)}_${('0'+today.getDate()).substr(-2, 2)}`;
+  const year: number = today.getFullYear();
+  const month: string = ('0'+(today.getMonth()+1)).slice(-2);
+  const day: string = ('0'+today.getDate()).slice(-2);
+  return `${year}_${month}_${day}`;
 }
