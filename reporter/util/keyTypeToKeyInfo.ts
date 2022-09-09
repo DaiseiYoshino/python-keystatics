@@ -104,7 +104,8 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
         width: 1,
         chars: [{
           name: targetKeyName,
-          count: targetKeyType ?? 0
+          count: targetKeyType ?? 0,
+          color: '#0000ff'
         }]
       });
     }
