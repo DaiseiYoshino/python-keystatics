@@ -41,6 +41,13 @@ const stylePart = `
     border: medium solid #cccccc;
     box-sizing: border-box;
     position: relative;
+
+    transition-property: background-color;
+    transition-duration: .3s;
+  }
+  
+  div.key-box:hover {
+    background-color: #ffffff !important;
   }
 
   span.key-char {
