@@ -6,6 +6,7 @@ const keyBox = (char: singleChar): string => {
       class="key-box"
       onmouseover="mouseOverFunc(this)"
       onmouseout="mouseOutFunc(this)"
+      style="background-color: ${char.color}"
     >
       <span class="key-char">
         ${char.name}
