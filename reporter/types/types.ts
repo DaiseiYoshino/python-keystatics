@@ -1,6 +1,7 @@
 export type singleChar = {
   name: string,
-  count: number
+  count: number,
+  color: string
 };
 
 export type keyInfo = {
