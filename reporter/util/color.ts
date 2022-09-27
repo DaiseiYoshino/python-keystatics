@@ -8,7 +8,7 @@ const CHAR_MAX: number = 255;
  * @returns {string} 設定する色
  */
 const getColorForKey = (count: number, maxCount: number): string => {
-  const barometer: number = Math.floor(CHAR_MAX * count / maxCount);
+  const barometer: number = Math.min(CHAR_MAX, count);
 
   const red: number = barometer;
   const green: number = 0;
