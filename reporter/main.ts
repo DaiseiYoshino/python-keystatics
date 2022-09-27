@@ -3,6 +3,7 @@ import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import keyboardInfo from './keyboardInfo/win_jp.ts';
 import keyTypeToKeyInfo from './util/keyTypeToKeyInfo.ts';
 import todayString from './util/todayString.ts';
+import { keyRowInfo } from './types/types';
 
 const filePath = `../LOG/report-${todayString()}.html`;
 
@@ -88,7 +89,7 @@ const stylePart = `
 </style>
 `;
 
-const keyRows = keyTypeToKeyInfo(keyboardInfo, keyTypes);
+const keyRows: keyRowInfo[] = keyTypeToKeyInfo(keyboardInfo, keyTypes);
 const keyPart = keyRows.map(keyRowInfo => keyRow(keyRowInfo)).join('');
 
 const html = `
