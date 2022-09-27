@@ -1,4 +1,4 @@
-import { keyInfo, keyRowInfo, singleChar } from "../types/types";
+import { keyInfo, keyRowInfo, singleChar } from "../types/types.ts";
 
 const convertName = (keyName:string):string => {
   // 「'」で囲われている箇所のマッチ

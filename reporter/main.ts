@@ -3,11 +3,12 @@ import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import keyboardInfo from './keyboardInfo/win_jp.ts';
 import keyTypeToKeyInfo from './util/keyTypeToKeyInfo.ts';
 import todayString from './util/todayString.ts';
-import { keyRowInfo } from './types/types';
+import nameConverter from './util/nameConverter.ts';
+import { keyRowInfo } from './types/types.ts';
 
 const filePath = `../LOG/report-${todayString()}.html`;
 
-const keyTypes = JSON.parse(await Deno.readTextFile('../LOG/2022_07_07.txt'));
+const keyTypes = JSON.parse(await Deno.readTextFile('../LOG/2022_07_08.txt'));
 
 const stylePart = `
 <style>
@@ -90,7 +91,7 @@ const stylePart = `
 `;
 
 const keyRows: keyRowInfo[] = keyTypeToKeyInfo(keyboardInfo, keyTypes);
-const keyPart = keyRows.map(keyRowInfo => keyRow(keyRowInfo)).join('');
+const keyPart = nameConverter(keyRows).map(keyRowInfo => keyRow(keyRowInfo)).join('');
 
 const html = `
 <!doctype html>
