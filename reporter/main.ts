@@ -1,10 +1,27 @@
+import 'https://deno.land/x/dotenv/load.ts';
+
 import keyRow from './component/keyRow.ts';
 import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
-import keyboardInfo from './keyboardInfo/win_jp.ts';
+import win_keyboardInfo from './keyboardInfo/win_jp.ts';
+import mac_keyboardInfo from './keyboardInfo/mac_jp.ts';
 import keyTypeToKeyInfo from './util/keyTypeToKeyInfo.ts';
 import todayString from './util/todayString.ts';
 import nameConverter from './util/nameConverter.ts';
-import { keyRowInfo } from './types/types.ts';
+import { keyRowInfo, keyBoardSettings } from './types/types.ts';
+
+let keyboardInfo:keyBoardSettings = []
+
+switch (Deno.env.get('KEYBOARD')) {
+  case 'win_jp':
+    keyboardInfo = win_keyboardInfo;
+    break;
+  case 'mac_jp':
+    keyboardInfo = mac_keyboardInfo;
+    break
+  default:
+    keyboardInfo = win_keyboardInfo;
+    break;
+}
 
 const filePath = `../LOG/report-${todayString()}.html`;
 
