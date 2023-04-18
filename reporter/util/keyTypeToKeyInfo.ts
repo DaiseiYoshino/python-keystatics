@@ -1,5 +1,6 @@
-import {keyTypes, keyBoardSettings, keyRowInfo, keyInfo} from '../types/types.ts';
-import SingleCharInfo from '../lib/singleCharInfo.ts'
+import {keyTypes, keyBoardSettings, keyRowInfo} from '../types/types.ts';
+import SingleCharInfo from '../lib/singleCharInfo.ts';
+import SingleKeyInfo from '../lib/singleKeyInfo.ts';
 import getColorForKey from './color.ts';
 
 /**
@@ -67,21 +68,10 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
 
   // キーボード設定に含まれている文字についてデータを生成する
   for (const keyboardRow of keyboard) {// キーボードの列に対応するループ
-    const keys: keyInfo[] = [];
+    const keys: SingleKeyInfo[] = [];
     for (const keycap of keyboardRow.keys) {// 各キー(一つのキーには大文字小文字等複数の文字が含まれる)毎のループ
-      const chars: SingleCharInfo[] = [];
-      for (const char of keycap.keys) {// 各文字に対するループ
-        const typeCount = keyType[char] ?? 0;
-        chars.push(new SingleCharInfo({
-          name: char,
-          count: typeCount,
-          color: getColorForKey(typeCount, maxTypes)
-        }));
-      }
-      keys.push({
-        width: keycap.width ?? 1,
-        chars: chars
-      });
+      const keyInfo = SingleKeyInfo.fromSettingAndTypes(keycap, keyType);
+      keys.push(keyInfo);
     }
     ret.push({
       padding: keyboardRow.padding ?? 0,
@@ -102,14 +92,14 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
       if (typeof targetKeyName === 'undefined') {break;}
 
       const targetKeyType: number = keyType[targetKeyName];
-      tmpKeyRow.keys.push({
+      tmpKeyRow.keys.push(new SingleKeyInfo({
         width: 1,
         chars: [new SingleCharInfo({
           name: targetKeyName,
           count: targetKeyType ?? 0,
           color: '#0000ff'
         })]
-      });
+      }));
     }
     ret.push(tmpKeyRow);
   }

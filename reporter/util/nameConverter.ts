@@ -1,5 +1,6 @@
-import { keyInfo, keyRowInfo} from "../types/types.ts";
+import {keyRowInfo} from "../types/types.ts";
 import SingleCharInfo from '../lib/singleCharInfo.ts';
+import SingleKeyInfo from '../lib/singleKeyInfo.ts';
 
 const convertName = (keyName:string):string => {
   // 固有で設定したい判定
@@ -35,7 +36,7 @@ export default (keyboard: keyRowInfo[]): keyRowInfo[] => {
   const ret: keyRowInfo[] = [];
 
   for (const row of keyboard) {
-    const retKeys:keyInfo[] = [];
+    const retKeys:SingleKeyInfo[] = [];
 
     for (const keycap of row.keys) {
       const retChars:SingleCharInfo[] = [];
@@ -48,10 +49,10 @@ export default (keyboard: keyRowInfo[]): keyRowInfo[] => {
         }))
       }
 
-      retKeys.push({
+      retKeys.push(new SingleKeyInfo({
         ...keycap,
         chars: retChars
-      });
+      }));
     }
 
     ret.push({
