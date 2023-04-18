@@ -4,7 +4,7 @@ import keyRow from './component/keyRow.ts';
 import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import win_keyboardInfo from './keyboardInfo/win_jp.ts';
 import mac_keyboardInfo from './keyboardInfo/mac_jp.ts';
-import {Manager as KeyBoardSettingsManager} from './keyboardInfo/keyBoardSettings.ts';
+import * as KeyBoardSettings from './keyboardInfo/keyBoardSettings.ts';
 import keyTypeToKeyInfo from './util/keyTypeToKeyInfo.ts';
 import todayString from './util/todayString.ts';
 import nameConverter from './util/nameConverter.ts';
@@ -24,7 +24,7 @@ switch (Deno.env.get('KEYBOARD')) {
     break;
 }
 
-const kbsManager = new KeyBoardSettingsManager(keyboardInfo);
+const kbsManager = new KeyBoardSettings.Manager(keyboardInfo);
 
 const filePath = `../LOG/report-${todayString()}.html`;
 

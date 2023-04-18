@@ -1,5 +1,5 @@
 import {keyTypes, keyRowInfo} from '../types/types.ts';
-import {Manager as KeyBoardSettingsManager} from '../keyboardInfo/keyBoardSettings.ts'
+import * as KeyBoardSettings from '../keyboardInfo/keyBoardSettings.ts'
 import KeyRowInfo from '../lib/keyRowInfo.ts';
 import getColorForKey from './color.ts';
 
@@ -31,7 +31,7 @@ const getCharsInKeyTypes = (keyType: keyTypes): string[] => {
  * @param keyType {keyTypes}
  * @returns {string[]}
  */
-const extractCharsNotInSetting = (KeyBoardSettingsManager: KeyBoardSettingsManager, keyType: keyTypes): string[] => {
+const extractCharsNotInSetting = (KeyBoardSettingsManager: KeyBoardSettings.Manager, keyType: keyTypes): string[] => {
   const charsInSettings = KeyBoardSettingsManager.charInSetting();
   const charsInKeyType = getCharsInKeyTypes(keyType);
   return charsInKeyType.filter(
@@ -42,7 +42,7 @@ const extractCharsNotInSetting = (KeyBoardSettingsManager: KeyBoardSettingsManag
 /**
  * キーボード設定とキータイプ情報から、表示に使うデータを生成する
  */
-const keyTypeToKeyInfo = (kbsManager: KeyBoardSettingsManager, keyType: keyTypes): keyRowInfo[] => {
+const keyTypeToKeyInfo = (kbsManager: KeyBoardSettings.Manager, keyType: keyTypes): keyRowInfo[] => {
   const keyboard = kbsManager.info;
   const maxTypes = getMaxKeyTypes(keyType);
   const ret: keyRowInfo[] = [];

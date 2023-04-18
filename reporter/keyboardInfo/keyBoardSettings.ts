@@ -1,19 +1,19 @@
-export type keySetting = {
+export type key = {
   width?: number,
   keys: string[]
 }
 
-export type rowSetting = {
+export type row = {
   padding?: number,
-  keys: keySetting[]
+  keys: key[]
 }
 
-export type boardSetting = rowSetting[]
+export type board = row[]
 
 export class Manager {
-  public info: boardSetting;
+  public info: board;
 
-  constructor(info: boardSetting) {
+  constructor(info: board) {
     this.info = info;
   }
 
@@ -27,4 +27,3 @@ export class Manager {
     return ret;
   }
 }
-
