@@ -25,6 +25,10 @@ class SingleKeyInfo {
     </div>
     `;
   }
+
+  mapAffectToChar(func: (char: SingleCharInfo) => void): void {
+    this.chars.map(char => func(char));
+  }
 }
 
 export default SingleKeyInfo;

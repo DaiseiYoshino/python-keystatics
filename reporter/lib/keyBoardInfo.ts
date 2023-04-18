@@ -1,4 +1,5 @@
 import KeyRowInfo from './keyRowInfo.ts'
+import SingleCharInfo from './SingleCharInfo.ts';
 
 class KeyBoardInfo {
   public rows: KeyRowInfo[];
@@ -23,6 +24,10 @@ class KeyBoardInfo {
       ...another.rows
     ];
     return this;
+  }
+
+  mapAffectToChar(func: (char: SingleCharInfo) => void): void {
+    this.rows.map(row => row.mapAffectToChar(func));
   }
 }
 

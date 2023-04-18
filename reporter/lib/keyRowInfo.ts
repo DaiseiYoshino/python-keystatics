@@ -1,4 +1,5 @@
 import SingleKeyInfo from './singleKeyInfo.ts';
+import SingleCharInfo from './singleCharInfo.ts';
 
 class KeyRowInfo {
   public padding?: number;
@@ -29,6 +30,10 @@ class KeyRowInfo {
         ${this.keys.map(key => key.toElem()).join('')}
       </div>
     `;
+  }
+
+  mapAffectToChar(func: (char: SingleCharInfo) => void): void {
+    this.keys.map(key => key.mapAffectToChar(func));
   }
 }
 
