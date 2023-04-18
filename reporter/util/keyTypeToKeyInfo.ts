@@ -1,6 +1,7 @@
 import {keyTypes, keyBoardSettings, keyRowInfo} from '../types/types.ts';
 import SingleCharInfo from '../lib/singleCharInfo.ts';
 import SingleKeyInfo from '../lib/singleKeyInfo.ts';
+import KeyRowInfo from '../lib/keyRowInfo.ts';
 import getColorForKey from './color.ts';
 
 /**
@@ -68,40 +69,29 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
 
   // キーボード設定に含まれている文字についてデータを生成する
   for (const keyboardRow of keyboard) {// キーボードの列に対応するループ
-    const keys: SingleKeyInfo[] = [];
-    for (const keycap of keyboardRow.keys) {// 各キー(一つのキーには大文字小文字等複数の文字が含まれる)毎のループ
-      const keyInfo = SingleKeyInfo.fromSettingAndTypes(keycap, keyType);
-      keys.push(keyInfo);
-    }
-    ret.push({
-      padding: keyboardRow.padding ?? 0,
-      keys: keys
-    });
+    const keyRow = KeyRowInfo.fromSettingAndTypes(keyboardRow, keyType);
+    ret.push(keyRow);
   }
 
   // キーボード設定に含まれていない文字についてデータを生成する
   const charsNotInKeyboardSettings = extractCharsNotInSetting(keyboard, keyType);
   const keysNumberOfLine = 10;
+  const rowSettingChunks = [];
+  for (let lineNum = 0; lineNum < (charsNotInKeyboardSettings.length)/keysNumberOfLine; lineNum++) {
+    const rowSetting: {padding?: number, keys: {width?: number, keys:string[]}[]} = {padding: 0, keys: []}
+    for (let keyIndex = 0; keyIndex < keysNumberOfLine; keyIndex++) {
+      const keySetting: {width?: number, keys:string[]} = {
+        width: 1,
+        keys: [charsNotInKeyboardSettings[lineNum * keysNumberOfLine + keyIndex]]
+      }
+      rowSetting.keys.push(keySetting);
+    }
+    rowSettingChunks.push(rowSetting);
+  }
   // 各行に対するループ
   for (let lineNum = 0; lineNum < (charsNotInKeyboardSettings.length)/keysNumberOfLine; lineNum++) {
-    const tmpKeyRow: keyRowInfo = {padding: 0, keys: []};
-    // 各キー(1キー1文字)に対するループ
-    for (let keyIndex = 0; keyIndex < keysNumberOfLine; keyIndex++) {
-      const targetKeyName: string = charsNotInKeyboardSettings[lineNum * keysNumberOfLine + keyIndex];
-      // もし追加する文字が尽きていれば早期離脱する
-      if (typeof targetKeyName === 'undefined') {break;}
-
-      const targetKeyType: number = keyType[targetKeyName];
-      tmpKeyRow.keys.push(new SingleKeyInfo({
-        width: 1,
-        chars: [new SingleCharInfo({
-          name: targetKeyName,
-          count: targetKeyType ?? 0,
-          color: '#0000ff'
-        })]
-      }));
-    }
-    ret.push(tmpKeyRow);
+    const row = KeyRowInfo.fromSettingAndTypes(rowSettingChunks[lineNum], keyType);
+    ret.push(row);
   }
 
   return ret;
