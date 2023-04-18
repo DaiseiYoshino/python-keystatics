@@ -1,6 +1,4 @@
 import {keyTypes, keyBoardSettings, keyRowInfo} from '../types/types.ts';
-import SingleCharInfo from '../lib/singleCharInfo.ts';
-import SingleKeyInfo from '../lib/singleKeyInfo.ts';
 import KeyRowInfo from '../lib/keyRowInfo.ts';
 import getColorForKey from './color.ts';
 
