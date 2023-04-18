@@ -5,6 +5,7 @@ import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import win_keyboardInfo from './keyboardInfo/win_jp.ts';
 import mac_keyboardInfo from './keyboardInfo/mac_jp.ts';
 import * as KeyBoardSettings from './keyboardInfo/keyBoardSettings.ts';
+import KeyBoardInfo from './lib/keyBoardInfo.ts';
 import keyTypeToKeyInfo from './util/keyTypeToKeyInfo.ts';
 import todayString from './util/todayString.ts';
 import nameConverter from './util/nameConverter.ts';
@@ -110,8 +111,8 @@ const stylePart = `
 </style>
 `;
 
-const keyRows: keyRowInfo[] = keyTypeToKeyInfo(kbsManager, keyTypes);
-const keyPart = nameConverter(keyRows).map(keyRowInfo => keyRow(keyRowInfo)).join('');
+const keyBoardInfo: KeyBoardInfo = keyTypeToKeyInfo(kbsManager, keyTypes);
+const keyPart = nameConverter(keyBoardInfo.rows).map(keyRowInfo => keyRow(keyRowInfo)).join('');
 
 const html = `
 <!doctype html>

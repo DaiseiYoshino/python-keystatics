@@ -1,6 +1,7 @@
 import {keyTypes, keyRowInfo} from '../types/types.ts';
 import * as KeyBoardSettings from '../keyboardInfo/keyBoardSettings.ts'
 import KeyRowInfo from '../lib/keyRowInfo.ts';
+import KeyBoardInfo from '../lib/keyBoardInfo.ts';
 import getColorForKey from './color.ts';
 
 /**
@@ -42,7 +43,7 @@ const extractCharsNotInSetting = (KeyBoardSettingsManager: KeyBoardSettings.Mana
 /**
  * キーボード設定とキータイプ情報から、表示に使うデータを生成する
  */
-const keyTypeToKeyInfo = (kbsManager: KeyBoardSettings.Manager, keyType: keyTypes): keyRowInfo[] => {
+const keyTypeToKeyInfo = (kbsManager: KeyBoardSettings.Manager, keyType: keyTypes): KeyBoardInfo => {
   const keyboard = kbsManager.info;
   const maxTypes = getMaxKeyTypes(keyType);
   const ret: keyRowInfo[] = [];
@@ -52,6 +53,7 @@ const keyTypeToKeyInfo = (kbsManager: KeyBoardSettings.Manager, keyType: keyType
     const keyRow = KeyRowInfo.fromSettingAndTypes(keyboardRow, keyType);
     ret.push(keyRow);
   }
+  const keyBoardInfo = KeyBoardInfo.fromSettingAndTypes(keyboard, keyType);
 
   // キーボード設定に含まれていない文字についてデータを生成する
   const charsNotInKeyboardSettings = extractCharsNotInSetting(kbsManager, keyType);
@@ -71,11 +73,10 @@ const keyTypeToKeyInfo = (kbsManager: KeyBoardSettings.Manager, keyType: keyType
     rowSettingChunks.push(rowSetting);
   }
   // 各行に対するループ
-  for (const keyRow of rowSettingChunks) {
-    ret.push(KeyRowInfo.fromSettingAndTypes(keyRow, keyType));
-  }
+  const keyBoardInfo2 = KeyBoardInfo.fromSettingAndTypes(rowSettingChunks, keyType);
+  keyBoardInfo.merge(keyBoardInfo2);
 
-  return ret;
+  return keyBoardInfo;
 };
 
 export default keyTypeToKeyInfo;
