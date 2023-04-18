@@ -17,6 +17,14 @@ class SingleKeyInfo {
       )
     });
   }
+
+  toElem(): string {
+    return `
+    <div class="key-frame" style="width:${(this.width ?? 1)*60}px;">
+      ${this.chars.map(char => char.toElem()).join('')}
+    </div>
+    `;
+  }
 }
 
 export default SingleKeyInfo;
