@@ -1,6 +1,5 @@
 import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 
-import keyRow from './component/keyRow.ts';
 import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
 import win_keyboardInfo from './keyboardInfo/win_jp.ts';
 import mac_keyboardInfo from './keyboardInfo/mac_jp.ts';
