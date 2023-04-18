@@ -1,13 +1,8 @@
-import SingleCharInfo from '../lib/singleCharInfo.ts'
-
-export type keyInfo = {
-  width?: number,
-  chars: SingleCharInfo[]
-};
+import SingleKeyInfo from '../lib/singleKeyInfo.ts';
 
 export type keyRowInfo = {
   padding?: number
-  keys: keyInfo[]
+  keys: SingleKeyInfo[]
 };
 
 export type keyTypes = Record<string, number>;
