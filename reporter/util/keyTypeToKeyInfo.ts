@@ -104,11 +104,11 @@ const keyTypeToKeyInfo = (keyboard: keyBoardSettings, keyType: keyTypes): keyRow
       const targetKeyType: number = keyType[targetKeyName];
       tmpKeyRow.keys.push({
         width: 1,
-        chars: [{
+        chars: [new SingleCharInfo({
           name: targetKeyName,
           count: targetKeyType ?? 0,
           color: '#0000ff'
-        }]
+        })]
       });
     }
     ret.push(tmpKeyRow);
