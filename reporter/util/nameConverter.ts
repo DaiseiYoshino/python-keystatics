@@ -30,16 +30,4 @@ const convertName = (keyName:string):string => {
   return keyName;
 }
 
-export default (keyboard: KeyBoardInfo): KeyBoardInfo => {
-  const ret: KeyBoardInfo = keyboard;
-
-  for (const row of keyboard.rows) {
-    for (const keycap of row.keys) {
-      for (const char of keycap.chars) {
-        char.name = convertName(char.name);
-      }
-    }
-  }
-
-  return ret;
-}
+export default convertName;
