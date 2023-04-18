@@ -9,6 +9,19 @@ class SingleCharInfo {
     this.color = params.color;
   }
 
+  static fromSettingAndTypes(setting: string, typeInfo: Record<string, number>):SingleCharInfo {
+    const char = setting;
+    return new SingleCharInfo({
+      name: char,
+      count: typeInfo[char] ?? 0
+    });
+  }
+
+  setColor(color: string) {
+    this.color = color;
+    return this;
+  }
+
   toElem(): string {
     return `
     <div
