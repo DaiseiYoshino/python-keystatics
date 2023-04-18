@@ -60,6 +60,8 @@ const keyTypeToKeyInfo = (kbsManager: KeyBoardSettingsManager, keyType: keyTypes
   for (let lineNum = 0; lineNum < (charsNotInKeyboardSettings.length)/keysNumberOfLine; lineNum++) {
     const rowSetting: {padding?: number, keys: {width?: number, keys:string[]}[]} = {padding: 0, keys: []}
     for (let keyIndex = 0; keyIndex < keysNumberOfLine; keyIndex++) {
+      const keyChar = charsNotInKeyboardSettings[lineNum * keysNumberOfLine + keyIndex];
+      if (!keyChar) break;
       const keySetting: {width?: number, keys:string[]} = {
         width: 1,
         keys: [charsNotInKeyboardSettings[lineNum * keysNumberOfLine + keyIndex]]
@@ -69,9 +71,8 @@ const keyTypeToKeyInfo = (kbsManager: KeyBoardSettingsManager, keyType: keyTypes
     rowSettingChunks.push(rowSetting);
   }
   // 各行に対するループ
-  for (let lineNum = 0; lineNum < (charsNotInKeyboardSettings.length)/keysNumberOfLine; lineNum++) {
-    const row = KeyRowInfo.fromSettingAndTypes(rowSettingChunks[lineNum], keyType);
-    ret.push(row);
+  for (const keyRow of rowSettingChunks) {
+    ret.push(KeyRowInfo.fromSettingAndTypes(keyRow, keyType));
   }
 
   return ret;
