@@ -17,6 +17,19 @@ class KeyRowInfo {
       )
     });
   }
+
+  toElem(): string {
+    const paddingElem: string = this.padding
+      ? `<div class="key-pad" style="width: ${this.padding * 60}px;"></div>`
+      : '';
+
+    return `
+      <div class="key-row">
+        ${paddingElem}
+        ${this.keys.map(key => key.toElem()).join('')}
+      </div>
+    `;
+  }
 }
 
 export default KeyRowInfo;
