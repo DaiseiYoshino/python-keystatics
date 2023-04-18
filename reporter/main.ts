@@ -111,7 +111,7 @@ const stylePart = `
 `;
 
 const keyBoardInfo: KeyBoardInfo = keyTypeToKeyInfo(kbsManager, keyTypes);
-const keyPart = nameConverter(keyBoardInfo).rows.map(keyRowInfo => keyRowInfo.toElem()).join('');
+const keyPart = nameConverter(keyBoardInfo).toElem();
 
 const html = `
 <!doctype html>

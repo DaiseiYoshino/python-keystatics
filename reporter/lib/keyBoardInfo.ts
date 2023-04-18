@@ -13,6 +13,10 @@ class KeyBoardInfo {
     );
   }
 
+  toElem(): string {
+    return this.rows.map(row => row.toElem()).join('');
+  }
+
   merge(another: KeyBoardInfo): KeyBoardInfo {
     this.rows = [
       ...this.rows,
