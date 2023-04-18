@@ -1,12 +1,8 @@
-export type singleChar = {
-  name: string,
-  count: number,
-  color: string
-};
+import SingleCharInfo from '../lib/singleCharInfo.ts'
 
 export type keyInfo = {
   width?: number,
-  chars: singleChar[]
+  chars: SingleCharInfo[]
 };
 
 export type keyRowInfo = {

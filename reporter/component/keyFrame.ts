@@ -1,6 +1,7 @@
-import {keyInfo, singleChar} from '../types/types.ts'
+import {keyInfo} from '../types/types.ts'
+import SingleCharInfo from '../lib/singleCharInfo.ts';
 
-const keyBox = (char: singleChar): string => {
+const keyBox = (char: SingleCharInfo): string => {
   return `
     <div
       class="key-box"
