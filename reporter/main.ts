@@ -1,4 +1,4 @@
-import 'https://deno.land/x/dotenv/load.ts';
+import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 
 import keyRow from './component/keyRow.ts';
 import {onMouseOverFunc, onMouseOutFunc} from './util/eventFunctions.ts';
@@ -25,7 +25,7 @@ switch (Deno.env.get('KEYBOARD')) {
 
 const filePath = `../LOG/report-${todayString()}.html`;
 
-const keyTypes = JSON.parse(await Deno.readTextFile('../LOG/2022_07_08.txt'));
+const keyTypes = JSON.parse(await Deno.readTextFile('../LOG/2023_03_24.txt'));
 
 const stylePart = `
 <style>
