@@ -5,7 +5,7 @@ import win_keyboardInfo from './keyboardInfo/win_jp.ts';
 import mac_keyboardInfo from './keyboardInfo/mac_jp.ts';
 import * as KeyBoardSettings from './keyboardInfo/keyBoardSettings.ts';
 import KeyBoardInfo from './lib/keyBoardInfo.ts';
-import SingleCharInfo from './lib/SingleCharInfo.ts';
+import SingleCharInfo from './lib/singleCharInfo.ts';
 import keyTypeToKeyInfo from './util/keyTypeToKeyInfo.ts';
 import todayString from './util/todayString.ts';
 import nameConverter from './util/nameConverter.ts';

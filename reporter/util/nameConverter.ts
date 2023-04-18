@@ -1,5 +1,3 @@
-import KeyBoardInfo from '../lib/keyBoardInfo.ts';
-
 const convertName = (keyName:string):string => {
   // 固有で設定したい判定
   const dict:Record<string, string> = {

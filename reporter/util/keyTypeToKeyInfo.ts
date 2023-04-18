@@ -1,6 +1,5 @@
-import {keyTypes, keyRowInfo} from '../types/types.ts';
+import {keyTypes} from '../types/types.ts';
 import * as KeyBoardSettings from '../keyboardInfo/keyBoardSettings.ts'
-import KeyRowInfo from '../lib/keyRowInfo.ts';
 import KeyBoardInfo from '../lib/keyBoardInfo.ts';
 import getColorForKey from './color.ts';
 
@@ -46,13 +45,8 @@ const extractCharsNotInSetting = (KeyBoardSettingsManager: KeyBoardSettings.Mana
 const keyTypeToKeyInfo = (kbsManager: KeyBoardSettings.Manager, keyType: keyTypes): KeyBoardInfo => {
   const keyboard = kbsManager.info;
   const maxTypes = getMaxKeyTypes(keyType);
-  const ret: keyRowInfo[] = [];
 
   // キーボード設定に含まれている文字についてデータを生成する
-  for (const keyboardRow of keyboard) {// キーボードの列に対応するループ
-    const keyRow = KeyRowInfo.fromSettingAndTypes(keyboardRow, keyType);
-    ret.push(keyRow);
-  }
   const keyBoardInfo = KeyBoardInfo.fromSettingAndTypes(keyboard, keyType);
 
   // キーボード設定に含まれていない文字についてデータを生成する

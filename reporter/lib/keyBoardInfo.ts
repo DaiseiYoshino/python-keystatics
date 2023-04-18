@@ -1,5 +1,5 @@
 import KeyRowInfo from './keyRowInfo.ts'
-import SingleCharInfo from './SingleCharInfo.ts';
+import SingleCharInfo from './singleCharInfo.ts';
 
 class KeyBoardInfo {
   public rows: KeyRowInfo[];
